@@ -9,6 +9,10 @@ import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import {AuthLayoutComponent} from './shared/layouts/auth-layout/auth-layout.component';
 import {SiteLayoutComponent} from './shared/layouts/site-layout/site-layout.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthService} from "./shared/services/auth.service";
+import {AuthGuard} from "./shared/classes/auth.guard";
+import {TokenInterceptor} from "./shared/classes/token.interceptor";
 
 
 @NgModule({
@@ -23,9 +27,18 @@ import {SiteLayoutComponent} from './shared/layouts/site-layout/site-layout.comp
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi : true,
+      useClass : TokenInterceptor
+    }
+  ],
   bootstrap: [
     AppComponent
   ],
