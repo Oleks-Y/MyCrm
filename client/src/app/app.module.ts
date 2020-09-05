@@ -13,6 +13,14 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthService} from "./shared/services/auth.service";
 import {AuthGuard} from "./shared/classes/auth.guard";
 import {TokenInterceptor} from "./shared/classes/token.interceptor";
+import { OverviewPageComponent } from './overview-page/overview-page.component';
+import { AnalyticsPageComponent } from './analytics-page/analytics-page.component';
+import { HistoryPageComponent } from './history-page/history-page.component';
+import { OrderPageComponent } from './order-page/order-page.component';
+import { CategoryPageComponent } from './category-page/category-page.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
+import { CategoryFormComponent } from './category-page/category-form/category-form.component';
+import { PositionsFormComponent } from './category-page/category-form/positions-form/positions-form.component';
 
 
 @NgModule({
@@ -21,7 +29,15 @@ import {TokenInterceptor} from "./shared/classes/token.interceptor";
     LoginPageComponent,
     AuthLayoutComponent,
     SiteLayoutComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    OverviewPageComponent,
+    AnalyticsPageComponent,
+    HistoryPageComponent,
+    OrderPageComponent,
+    CategoryPageComponent,
+    LoaderComponent,
+    CategoryFormComponent,
+    PositionsFormComponent
   ],
   imports: [
     BrowserModule,
